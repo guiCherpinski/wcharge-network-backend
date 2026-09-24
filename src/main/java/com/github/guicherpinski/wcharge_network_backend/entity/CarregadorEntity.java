@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_carregador")
@@ -58,4 +60,7 @@ public class CarregadorEntity {
             length = 30
     )
     private StatusCarregadorEnum status;
+
+    @OneToMany(mappedBy = "carregador")
+    private Set<SessaoRecargaEntity> sessoes = new HashSet<>();
 }

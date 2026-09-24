@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
-public class SessaoRecarga {
+public class SessaoRecargaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +22,10 @@ public class SessaoRecarga {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carregador_id")
     private CarregadorEntity carregador;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private UsuarioEntity usuario;
 
     @Column(
             name = "data_inicio",
