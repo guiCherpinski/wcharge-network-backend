@@ -40,6 +40,7 @@ public class EstacaoEntity {
     )
     private String endereco;
 
+    @Enumerated(EnumType.STRING)
     @Column(
             name = "status",
             nullable = false,

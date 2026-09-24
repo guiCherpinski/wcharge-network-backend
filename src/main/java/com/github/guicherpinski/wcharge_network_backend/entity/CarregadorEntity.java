@@ -1,6 +1,6 @@
 package com.github.guicherpinski.wcharge_network_backend.entity;
 
-import com.github.guicherpinski.wcharge_network_backend.entity.enumereted.StatusEnum;
+import com.github.guicherpinski.wcharge_network_backend.entity.enumereted.StatusCarregadorEnum;
 import com.github.guicherpinski.wcharge_network_backend.entity.enumereted.TipoConectorEnum;
 import jakarta.persistence.*;
 import lombok.*;
@@ -31,6 +31,7 @@ public class CarregadorEntity {
     )
     private String codigo;
 
+    @Enumerated(EnumType.STRING)
     @Column(
             name = "tipo_conector",
             nullable = false,
@@ -50,10 +51,11 @@ public class CarregadorEntity {
     )
     private BigDecimal valorKwh;
 
+    @Enumerated(EnumType.STRING)
     @Column(
             name = "status",
             nullable = false,
             length = 30
     )
-    private StatusEnum status;
+    private StatusCarregadorEnum status;
 }
