@@ -4,6 +4,9 @@ import com.github.guicherpinski.wcharge_network_backend.entity.enumereted.Status
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_estacao")
 @AllArgsConstructor
@@ -43,4 +46,7 @@ public class EstacaoEntity {
             length = 30
     )
     private StatusEnum status;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "estacao")
+    private Set<CarregadorEntity> carregadores = new HashSet<>();
 }
