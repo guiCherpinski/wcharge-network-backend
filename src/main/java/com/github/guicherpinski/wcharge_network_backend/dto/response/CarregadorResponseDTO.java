@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 public record CarregadorResponseDTO(
         Long id,
-        EstacaoEntity estacao,
+        EstacaoResponseDTO estacao,
         String codigo,
         TipoConectorEnum tipoConector,
         BigDecimal potenciaKw,

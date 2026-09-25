@@ -1,5 +1,6 @@
 package com.github.guicherpinski.wcharge_network_backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.github.guicherpinski.wcharge_network_backend.entity.enumereted.StatusEnum;
 import jakarta.persistence.*;
 import lombok.*;
@@ -48,6 +49,7 @@ public class EstacaoEntity {
     )
     private StatusEnum status;
 
+    @JsonBackReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "estacao")
     private Set<CarregadorEntity> carregadores = new HashSet<>();
 }

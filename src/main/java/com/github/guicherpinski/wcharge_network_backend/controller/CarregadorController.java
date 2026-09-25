@@ -4,6 +4,7 @@ import com.github.guicherpinski.wcharge_network_backend.dto.response.CarregadorR
 import com.github.guicherpinski.wcharge_network_backend.service.CarregadorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
@@ -21,6 +22,11 @@ public class CarregadorController {
     @GetMapping
     public ResponseEntity<List<CarregadorResponseDTO>> listarCarregadores(){
         return ResponseEntity.ok(service.listarCarregadores());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CarregadorResponseDTO> buscarCarregador(@PathVariable Long id){
+        return ResponseEntity.ok(service.buscarCarregador(id));
     }
 
 }
