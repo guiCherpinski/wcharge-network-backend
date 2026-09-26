@@ -7,6 +7,7 @@ import com.github.guicherpinski.wcharge_network_backend.exception.EstacaoNotFoun
 import com.github.guicherpinski.wcharge_network_backend.mapper.EstacaoMapper;
 import com.github.guicherpinski.wcharge_network_backend.repository.EstacaoRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
@@ -40,5 +41,12 @@ public class EstacaoService {
         EstacaoResponseDTO response = mapper.toResponse(entity);
 
         return response;
+    }
+
+    @Transactional
+    public void deletarEstacao(Long id){
+        EstacaoEntity entity = repository.findById(id)
+                .orElseThrow(() -> new EstacaoNotFound("erro - estação não encontrada"));
+        repository.delete(entity);
     }
 }
