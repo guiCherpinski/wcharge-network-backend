@@ -18,7 +18,7 @@ public class TokenService {
     @Value("${security.jwt.secret-key}")
     private String secret;
 
-    private String gerarToken(UsuarioEntity entity){
+    public String gerarToken(UsuarioEntity entity){
         try {
             Algorithm algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
@@ -31,7 +31,7 @@ public class TokenService {
         }
     }
 
-    private String getSubject(String tokenJWT){
+    public String getSubject(String tokenJWT){
         try {
             Algorithm algoritmo = Algorithm.HMAC256(secret);
             return JWT.require(algoritmo)
