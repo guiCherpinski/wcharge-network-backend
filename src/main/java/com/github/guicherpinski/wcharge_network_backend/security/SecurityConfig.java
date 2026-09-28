@@ -27,8 +27,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sh -> sh.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET,"/api/v1/estacoes").hasAnyRole("ADMIN","USER")
-                        .requestMatchers(HttpMethod.GET,"/api/v1/estacoes/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/api/v1/estacoes","/api/v1/carregadores").hasAnyRole("ADMIN","USER")
+                        .requestMatchers(HttpMethod.GET,"/api/v1/estacoes/**","/api/v1/carregadores/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
                         .anyRequest().authenticated()
