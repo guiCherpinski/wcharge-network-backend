@@ -1,0 +1,1 @@
+insert into tb_estacao(cidade,endereco,nome,status) values ('Jaraguá do Sul','Rua henrique nagel 40','Estação de Tratamento','Ativo')
