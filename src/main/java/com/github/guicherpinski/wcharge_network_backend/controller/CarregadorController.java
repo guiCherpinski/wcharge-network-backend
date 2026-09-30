@@ -29,7 +29,9 @@ public class CarregadorController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarCarregador(@PathVariable Long id){
+        service.deletarPorId(id);
 
+        return ResponseEntity.noContent().build();
     }
 
 }

@@ -39,4 +39,12 @@ public class CarregadorService {
 
         return response;
     }
+
+    public void deletarPorId(Long id){
+        if (repository.existsById(id)){
+            repository.deleteById(id);
+        } else {
+            new CarregadorNotFound("erro - carregador não encontrado");
+        }
+    }
 }
