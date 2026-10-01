@@ -40,6 +40,15 @@ public class CarregadorService {
         return response;
     }
 
+    public CarregadorResponseDTO buscarCarregadorCodigo(String codigo){
+        CarregadorEntity entity = repository.findByCodigo(codigo)
+                .orElseThrow(() -> new CarregadorNotFound("erro - carregador não encontrado"));
+
+        CarregadorResponseDTO response = mapper.toResponse(entity);
+
+        return response;
+    }
+
     public void deletarPorId(Long id){
         if (repository.existsById(id)){
             repository.deleteById(id);

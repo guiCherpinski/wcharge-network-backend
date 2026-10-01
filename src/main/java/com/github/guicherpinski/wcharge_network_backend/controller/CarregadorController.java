@@ -27,6 +27,11 @@ public class CarregadorController {
         return ResponseEntity.ok(service.buscarCarregador(id));
     }
 
+    @GetMapping("/{codigo}")
+    public ResponseEntity<CarregadorResponseDTO> buscarCarregadorCodigo(@PathVariable String codigo){
+        return ResponseEntity.ok(service.buscarCarregadorCodigo(codigo));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarCarregador(@PathVariable Long id){
         service.deletarPorId(id);
