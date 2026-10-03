@@ -28,7 +28,7 @@ public class EstacaoController {
     }
 
     @GetMapping("/{nome}")
-    public ResponseEntity<List<EstacaoResponseDTO>> buscarEstacoes(@PathVariable String nome){
+    public ResponseEntity<EstacaoResponseDTO> buscarEstacoes(@PathVariable String nome){
         return ResponseEntity.ok(service.buscarEstacaoNome(nome));
     }
 
