@@ -44,6 +44,16 @@ public class EstacaoService {
     }
 
     @Transactional
+    public EstacaoResponseDTO buscarEstacaoNome(String nome){
+        EstacaoEntity entity = repository.findByNome(nome)
+                .orElseThrow(() -> new EstacaoNotFound("erro - estação não encontrada"));
+
+        EstacaoResponseDTO response = mapper.toResponse(entity);
+
+        return response;
+    }
+
+    @Transactional
     public void deletarEstacao(Long id){
         EstacaoEntity entity = repository.findById(id)
                 .orElseThrow(() -> new EstacaoNotFound("erro - estação não encontrada"));
